@@ -1,0 +1,120 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <form asp-controller="Home" asp-action="RunModule" enctype="multipart/form-data" id="BlobUploadForm" method="post" class="form-label-left" role="form">
+            <div class="modal-body">
+                <div class="form-group">
+                    <div class="input-group">
+                        <label class="input-group-btn">
+                            <span class="btn btn-primary">
+                                Browse… <input type="file" style="display: none;" name="file" id="FileInput">
+                            </span>
+                        </label>
+                        <input type="text" class="form-control" readonly="" id="BrowseInput">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <button type="button" value="Upload Streaming File" class="btn btn-default" id="UploadStreamingFile" onclick="uploadStreamingFile()">Upload Streaming File</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <label for="PointsInput">
+                            Points
+                        </label>
+                        <input type="text" class="form-control" required id="PointsInput" name="points">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <button type="submit" value="Run module" class="btn btn-default" id="RunModule">Run module</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <h2 id="hash">Hash: </h2>
+        <h2 id="time">Time in ms: </h2>
+        <div id="tplTest"></div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/vendor/bootstrap-waitingfor/bootstrap-waitingfor.js"></script>
+    <script src="~/vendor/azure-storage/azure-storage.blob.js"></script>
+    <script type="text/javascript">
+        $(document).on('change', ':file', function () {
+            var input = $(this)
+            var label = $('#BrowseInput').val(input.val().replace(/\\/g, '/').replace(/.*\//, ''));
+        });
+    </script>
+    <script type="text/javascript">
+        function getAntiForgeryToken() {
+            token = $('input[name=__RequestVerificationToken]').val();
+            return token;
+        };
+    </script>
+    <script type="text/javascript">
+        window.onload = function () {
+            this.setInterval(function () {
+                $.ajax({
+                    url: '@Url.Action("SetModuleInfo", "Home")',
+                    data: {},
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    method: 'POST',
+                    headers: { 'RequestVerificationToken': getAntiForgeryToken({ }) },
+                    success: function (returned) {
+                        if (returned) {
+                            $("#hash").html("Hash: " + returned.hash);
+                            $("#time").html("Time: " + returned.time);
+                            $("#tplTest").html(returned.time);
+                        }
+                    },
+                    error: function (returned) {
+
+                    }
+                });
+                var tpl = +$("#tplTest").html();
+                if (tpl > 0) {
+                    $("#hash").css("display", "block");
+                    $("#time").css("display", "block");
+                    $("#tplTest").css("display", "none");
+                } else {
+                    $("#hash").css("display", "none");
+                    $("#time").css("display", "none");
+                    $("#tplTest").css("display", "none");
+                }
+            }, 2000);
+        }
+    </script>
+    <script type="text/javascript">
+        function uploadStreamingFile() {
+            var data = new FormData();
+            data.append('file', $('#FileInput').get(0).files[0]);
+            //$.each($('#FileInput')[0].files, function (i, file) {
+            //    data.append('file-' + i, file);
+            //});
+
+            $.ajax({
+                url: '@Url.Action("UploadStreamingFile", "Home")',
+                data: data,
+                cache: false,
+                contentType: false,
+                processData: false,
+                method: 'POST',
+                headers: { 'RequestVerificationToken': getAntiForgeryToken({ }) },
+                success: function (returned) {
+
+                },
+                error: function (returned) {
+
+                }
+            });
+        }
+    </script>
+}

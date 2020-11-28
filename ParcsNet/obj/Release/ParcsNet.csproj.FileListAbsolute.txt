@@ -1,0 +1,14 @@
+C:\Users\stdym\source\repos\ParcsNet\ParcsNet\bin\Release\ParcsNet.exe.config
+C:\Users\stdym\source\repos\ParcsNet\ParcsNet\bin\Release\ParcsNet.exe
+C:\Users\stdym\source\repos\ParcsNet\ParcsNet\bin\Release\ParcsNet.pdb
+C:\Users\stdym\source\repos\ParcsNet\ParcsNet\bin\Release\CommandLine.dll
+C:\Users\stdym\source\repos\ParcsNet\ParcsNet\bin\Release\Parcs.dll
+C:\Users\stdym\source\repos\ParcsNet\ParcsNet\bin\Release\Parcs.Module.CommandLine.dll
+C:\Users\stdym\source\repos\ParcsNet\ParcsNet\bin\Release\System.Reflection.TypeExtensions.dll
+C:\Users\stdym\source\repos\ParcsNet\ParcsNet\bin\Release\CommandLine.xml
+C:\Users\stdym\source\repos\ParcsNet\ParcsNet\obj\Release\ParcsNet.csprojAssemblyReference.cache
+C:\Users\stdym\source\repos\ParcsNet\ParcsNet\obj\Release\ParcsNet.exe.config
+C:\Users\stdym\source\repos\ParcsNet\ParcsNet\obj\Release\ParcsNet.csproj.CoreCompileInputs.cache
+C:\Users\stdym\source\repos\ParcsNet\ParcsNet\obj\Release\ParcsNet.csproj.CopyComplete
+C:\Users\stdym\source\repos\ParcsNet\ParcsNet\obj\Release\ParcsNet.exe
+C:\Users\stdym\source\repos\ParcsNet\ParcsNet\obj\Release\ParcsNet.pdb

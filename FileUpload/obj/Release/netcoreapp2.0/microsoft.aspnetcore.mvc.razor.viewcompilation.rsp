@@ -1,0 +1,12 @@
+E:\FileUpload-master\FileUpload
+--output-path=obj\Release\netcoreapp2.0\
+--application-name=FileUpload
+--content-root=E:\FileUpload-master\FileUpload
+--file=E:\FileUpload-master\FileUpload\Views\Home\About.cshtml
+--file=E:\FileUpload-master\FileUpload\Views\Home\Contact.cshtml
+--file=E:\FileUpload-master\FileUpload\Views\Home\Index.cshtml
+--file=E:\FileUpload-master\FileUpload\Views\Shared\Error.cshtml
+--file=E:\FileUpload-master\FileUpload\Views\Shared\_Layout.cshtml
+--file=E:\FileUpload-master\FileUpload\Views\Shared\_ValidationScriptsPartial.cshtml
+--file=E:\FileUpload-master\FileUpload\Views\_ViewImports.cshtml
+--file=E:\FileUpload-master\FileUpload\Views\_ViewStart.cshtml
